@@ -228,7 +228,9 @@ git config --global alias.dev '!git --git-dir=\"./.git_dev\"'
 Спасибо за внимание; желаю всем приятной и эффективной каждодневной работы.
 
 - - -
+
 Бонус для внимательных. Упомянутые выше и несколько неупомянутых алиасов из конфига:
+
 ```ini
 [alias]
     # `git sshow hack` - показать содержимое стеша с названием, включающим "hack". Строка может быть неточной
@@ -261,4 +263,3 @@ git config --global alias.dev '!git --git-dir=\"./.git_dev\"'
     # переход на следующий коммит - операция, обратная `git reset HEAD~1`
     forward = "!f() { git log --pretty=oneline --all | grep -B1 `git rev-parse HEAD` | head -n1 | egrep -o '[a-f0-9]{20,}' | xargs git checkout ; }; f"
 ```
-</spoiler>
