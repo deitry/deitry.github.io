@@ -2,11 +2,11 @@
  * Syntax highlighting styles
  */
 .highlight {
-  background: #3b3030;
+  background: #1b1010;
   @extend %vertical-rhythm;
 
   .highlighter-rouge & {
-    background: #3b3030;
+    background: #1b1010;
   }
 
   .c     { color: #998; font-style: italic } // Comment
@@ -44,7 +44,7 @@
   .ne    { color: #900; font-weight: bold } // Name.Exception
   .nf    { color: #900; font-weight: bold } // Name.Function
   .nn    { color: #555 } // Name.Namespace
-  .nt    { color: #505080 } // Name.Tag
+  .nt    { color: #808090 } // Name.Tag
   .nv    { color: #008080 } // Name.Variable
   .ow    { font-weight: bold } // Operator.Word
   .w     { color: #bbb } // Text.Whitespace
