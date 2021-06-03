@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+
+  <link rel="canonical" href="/jekyll/update/2020/07/12/hello-world/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Nice to see how markdown file becomes a post.">
+
+  <meta property="og:site_name" content="My digital garden">
+
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
+
+  <link rel="stylesheet" href="/styles.css">
+
+  
+  <meta property="og:description" content="Nice to see how markdown file becomes a post."/>
+  
+
+  
+  <meta property="og:title" content="Hello world!">
+  <meta property="og:type" content="article">
+  
+
+  
+  <meta property="article:published_time" content="2020-07-12T00:00:08+03:00">
+  <meta property="article:author" content="/">
+  
+
+  <meta property="og:url" content="/jekyll/update/2020/07/12/hello-world/" />
+
+  
+
+  <title>
+    
+      Hello world! &mdash; My digital garden
+    
+  </title>
+</head>
+
+  <body>
+    <nav><div>
+    <a class="internal-link" href="/"><b>My digital garden</b></a>
+</div>
+</nav>
+    <div class="wrapper">
+      <main><article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Hello world!</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-07-12T00:00:08+03:00" itemprop="datePublished">Jul 12, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Nice to see how markdown file becomes a post.</p>
+
+<h2 id="how-i-met-my-blog">How I met my blog</h2>
+
+<p>Though it was a bit tough to create proper ruby environment on WSL Ubuntu 18.04, I managed Jekyll to create my blog.</p>
+
+<p>Here are two docs which I use for blog construction:</p>
+<ul>
+  <li>Installation - https://jekyllrb.com/docs/installation/</li>
+  <li>Blog creation - https://jekyllrb.com/docs/</li>
+</ul>
+
+<p>I run into problems since beginning when trying to create proper ruby environment. <code class="language-plaintext highlighter-rouge">rbenv</code> declined to install 2.5.0 <code class="language-plaintext highlighter-rouge">ruby</code> with</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BUILD FAILED (Ubuntu 18.04 using ruby-build 20170726)
+</code></pre></div></div>
+
+<p>Found these instructions but following them didn’t worked for me:</p>
+<ul>
+  <li>https://github.com/rbenv/ruby-build/issues/1199</li>
+  <li>https://github.com/rvm/rvm/issues/4764#issuecomment-545827887</li>
+</ul>
+
+<p>After that I decided to do a straight <code class="language-plaintext highlighter-rouge">apt-get install ruby</code>. This brings to me <code class="language-plaintext highlighter-rouge">2.5.1</code> version which is nice.</p>
+
+<p>Next I got build error when trying to <code class="language-plaintext highlighter-rouge">gem install jekyll bundler</code>. Apparentely, I missed <code class="language-plaintext highlighter-rouge">ruby-dev</code> package when installing <code class="language-plaintext highlighter-rouge">ruby</code> since <code class="language-plaintext highlighter-rouge">jekyll</code> couldn’t build in the first time complaining about some <code class="language-plaintext highlighter-rouge">ruby</code> headers.</p>
+
+<p>Also I <code class="language-plaintext highlighter-rouge">chown</code>-ed <code class="language-plaintext highlighter-rouge">/var/lib/gems/</code> to my local user so I can use gems without <code class="language-plaintext highlighter-rouge">sudo</code> … as I thought. I discover that <code class="language-plaintext highlighter-rouge">ruby</code> still want root when building some necessary gems (to access those headers or something like that, I guess).</p>
+
+<p>Finally after all commands succeeded, running</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new myblog
+<span class="nb">cd </span>myblog
+bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div></div>
+<p>brings calm to my heart.</p>
+
+<h2 id="in-conclusion">In conclusion</h2>
+
+<p>Setting up environement is the hardest 80% in almost every project. Doing the project is the rest 80%, while supporting it through years takes another 146%.</p>
+
+<p>Wish luck to myself and you.</p>
+
+  </div><a class="u-url" href="/jekyll/update/2020/07/12/hello-world/" hidden></a>
+</article>
+</main>
+      <footer>This is the footer. Include anything you'd like here, like a link to an <a class="internal-link" href="/about">About</a> page.
+</footer>
+    </div>
+
+    <!-- That file is not particularly elegant. This will need a refactor at some point. -->
+<style>
+  content a.internal-link {
+    border-color: #8b88e6;
+    background-color: #35373f;
+  }
+
+  #tooltip-wrapper {
+    background: rgb(65, 65, 65);
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    position: absolute;
+    width: 400px;
+    height: 250px;
+    font-size: 0.8em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 100ms;
+  }
+
+  #tooltip-wrapper:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.6) 90%);
+    width: 100%;
+    height: 75px;
+  }
+</style>
+
+<div style="opacity: 0; display: none;" id='tooltip-wrapper'>
+  <div id='tooltip-content'>
+  </div>
+</div>
+
+<iframe style="display: none; height: 0; width: 0;" id='link-preview-iframe' src="">
+</iframe>
+
+<script>
+  var opacityTimeout;
+  var contentTimeout;
+  var transitionDurationMs = 100;
+
+  var iframe = document.getElementById('link-preview-iframe')
+  var tooltipWrapper = document.getElementById('tooltip-wrapper')
+  var tooltipContent = document.getElementById('tooltip-content')
+
+  function hideTooltip() {
+    opacityTimeout = setTimeout(function () {
+      tooltipWrapper.style.opacity = 0;
+      contentTimeout = setTimeout(function () {
+        // TODO: post-link support
+        if (!tooltipContent)
+          return;
+
+        tooltipContent.innerHTML = '';
+        tooltipWrapper.style.display = 'none';
+      }, transitionDurationMs + 1);
+    }, transitionDurationMs);
+  }
+
+  function showTooltip(event) {
+    var elem = event.target;
+    var elem_props = elem.getClientRects()[elem.getClientRects().length - 1];
+    var top = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (event.target.host === window.location.host) {
+      iframe.src = event.target.href
+      iframe.onload = function () {
+        // TODO: post-link support
+        if (!tooltipContent)
+          return;
+
+        tooltipContentHtml = '';
+
+        let headerContent = iframe.contentWindow.document.querySelector('h1');
+        let content = iframe.contentWindow.document.querySelector('content');
+
+        if (!headerContent || !content)
+          return;
+
+        tooltipContentHtml += '<div style="font-weight: bold;">' + headerContent.innerHTML + '</div>';
+        tooltipContentHtml += content.innerHTML;
+
+        tooltipContent.innerHTML = tooltipContentHtml;
+
+        tooltipWrapper.style.display = 'block';
+        setTimeout(function () {
+          tooltipWrapper.style.opacity = 1;
+        }, 1);
+      }
+
+      tooltipWrapper.style.left = elem_props.left - (tooltipWrapper.offsetWidth / 2) + (elem_props.width / 2) + "px";
+      if ((window.innerHeight - elem_props.top) < (tooltipWrapper.offsetHeight)) {
+        tooltipWrapper.style.top = elem_props.top + top - tooltipWrapper.offsetHeight - 10 + "px";
+      } else if ((window.innerHeight - elem_props.top) > (tooltipWrapper.offsetHeight)) {
+        tooltipWrapper.style.top = elem_props.top + top + 35 + "px";
+      }
+
+      if ((elem_props.left + (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
+        tooltipWrapper.style.left = "10px";
+      } else if ((document.body.clientWidth - elem_props.left - (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
+        tooltipWrapper.style.left = document.body.clientWidth - tooltipWrapper.offsetWidth - 20 + "px";
+      }
+    }
+  }
+
+  function setupListeners(linkElement) {
+    linkElement.addEventListener('mouseleave', function (_event) {
+      hideTooltip();
+    });
+
+    tooltipWrapper.addEventListener('mouseleave', function (_event) {
+      hideTooltip();
+    });
+
+    linkElement.addEventListener('mouseenter', function (event) {
+      clearTimeout(opacityTimeout);
+      clearTimeout(contentTimeout);
+      try {
+        showTooltip(event);
+      } catch (e) { }
+    });
+
+    tooltipWrapper.addEventListener('mouseenter', function (event) {
+      clearTimeout(opacityTimeout);
+      clearTimeout(contentTimeout);
+    });
+  }
+
+  document.querySelectorAll('content a').forEach(setupListeners);
+</script>
+
+  </body>
+</html>
