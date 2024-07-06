@@ -10,6 +10,14 @@
             "args": [
                 "exec", "jekyll", "serve", "--incremental",
             ]
+        },
+        {
+            "label": "setup workspace",
+            "type": "shell",
+            "command": "bundle",
+            "args": [
+                "install",
+            ]
         }
     ]
 }
